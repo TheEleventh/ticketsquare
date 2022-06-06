@@ -133,6 +133,7 @@ export default function HomeLayout(props) {
           transitionDuration=".2s, .2s, .35s"
           transitionProperty="top, bottom, width"
           transitionTimingFunction="linear, linear, ease"
+          // mb={'100%'}
         >
           <Box>
             <NavbarVertical />

@@ -13,7 +13,7 @@ import { globalStyles } from "./styles";
 export default extendTheme(
  
   { breakpoints }, // Breakpoints
-  {initialColorMode: 'dark'},
+  {initialColorMode: 'Dark'},
   globalStyles,
   badgeStyles, // badge styles
   buttonStyles, // button styles
