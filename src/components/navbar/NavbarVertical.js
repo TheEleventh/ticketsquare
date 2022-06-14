@@ -25,8 +25,10 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import { useCelo } from '@celo/react-celo';
 
 export const NavbarVertical = () => {
+  const { connect, address } = useCelo();
   const [scrolled, setScrolled] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
   const navbarIcon = useColorModeValue("gray.400", "white");
@@ -205,13 +207,15 @@ export const NavbarVertical = () => {
           <Button
             //   me='30%'
             //   mb='30px'
-            w="100px"
-            //   minW='140px'
+            onClick={connect}
+            w="150px"
+              minW='140px'
             //   mt={{ base: "20px", "2xl": "auto" }}
             fontWeight={700}
             variant="brand"
           >
-            My tickets
+            Connect Wallet
+            {/* My tickets */}
           </Button>
         </Stack>
       </Flex>
