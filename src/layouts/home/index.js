@@ -1,11 +1,15 @@
 // Chakra imports
-import { Box, useDisclosure } from "@chakra-ui/react";
+import { Box, useDisclosure, Portal } from "@chakra-ui/react";
 import Footer from "components/footer/FooterAdmin.js";
 import { SidebarContext } from "contexts/SidebarContext";
 import React, { useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
 import { NavbarVertical } from "components/navbar/NavbarVertical.js";
+
+import Navbar from "components/navbar/NavbarAdmin.js";
+
+
 // Custom Chakra theme
 export default function HomeLayout(props) {
   const { ...rest } = props;
@@ -90,7 +94,7 @@ export default function HomeLayout(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/home") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -135,9 +139,22 @@ export default function HomeLayout(props) {
           transitionTimingFunction="linear, linear, ease"
           // mb={'100%'}
         >
-          <Box>
+           <Portal>
+            <Box>
+              <Navbar
+                onOpen={onOpen}
+                logoText={"Ticket Square"}
+                brandText={getActiveRoute(routes)}
+                secondary={getActiveNavbar(routes)}
+                message={getActiveNavbarText(routes)}
+                fixed={fixed}
+                {...rest}
+              />
+            </Box>
+          </Portal>
+          {/* <Box>
             <NavbarVertical />
-          </Box>
+          </Box> */}
 
           {getRoute() ? (
             <Box
