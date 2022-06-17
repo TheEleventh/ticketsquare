@@ -97,59 +97,60 @@ export default function Home() {
          </Flex>
        </Box> */}
 
-            <Box diplay="flex" justifyContent="center" width="80%" mt="36px">
-              {/* <Card mb="20px" align="center" p="20px"> */}
-              <Flex direction={{base: 'column', md: 'row'}} w={{base: '100%'}} justifyContent="space-around" alignItems='center'>
-                <Box 
-                justifySelf={'flex-start'}
-                >
-                <Text
-                  fontSize="md"
-                  fontWeight="500"
-                  color={textColorMini}
-                >Event Logo/NFT Art</Text>
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              w={{ base: "100%" }}
+              justifyContent="flex-start"
+              alignItems="center"
+              mt='75px'
+              mb="50px"
+            >
+              <Box ml='59px'>
+                <Text fontSize="md" fontWeight="500" color={textColorMini}>
+                  Event Logo/NFT Art
+                </Text>
               </Box>
-                <Flex
-                  mb="40px"
-                  h="100%"
-                  
-                  direction={{ base: "column", "2xl": "row" }}
-                >
-                  <Dropzone
-                    w={{ base: "100%", "2xl": "268px" }}
-                    h={{base: '200px'}}
-                    // me="36px" 
-                    // maxH={{ base: "100%", lg: "100%", "2xl": "100%" }}
-                    // minH={{ base: "100%", lg: "100%", "2xl": "100%" }}
-                    content={
-                      <Box>
-                        <Icon
-                          as={MdUpload}
-                          w="80px"
-                          h="80px"
-                          color={brandColor}
-                        />
-                        <Flex justify="center" mx="auto" mb="12px">
-                          <Text
-                            fontSize="xl"
-                            fontWeight="700"
-                            color={brandColor}>
-                            Upload File Here
-                          </Text>
-                        </Flex>
-                        <Text
-                          fontSize="sm"
-                          fontWeight="500"
-                          color="secondaryGray.500"
-                        >
-                          PNG, JPG and GIF files are allowed
+
+              <Flex
+              // flex='1' 
+              
+                h="100%"
+                direction={{ base: "column", "2xl": "row" }}
+                justifyContent="flex-end"
+                ml='99px'
+              >
+                <Dropzone
+                  w={{ base: "140%", "2xl": "268px" }}
+                  h={{ base: "200px" }}
+                  // me="36px"
+                  // maxH={{ base: "100%", lg: "100%", "2xl": "100%" }}
+                  // minH={{ base: "100%", lg: "100%", "2xl": "100%" }}
+                  content={
+                    <Box>
+                      <Icon
+                        as={MdUpload}
+                        w="80px"
+                        h="80px"
+                        color={brandColor}
+                      />
+                      <Flex justify="center" mx="auto" mb="12px">
+                        <Text fontSize="xl" fontWeight="700" color={brandColor}>
+                          Upload File Here
                         </Text>
-                      </Box>
-                    }
-                  />
-                </Flex>
-                </Flex>
-              {/* </Card> */}
+                      </Flex>
+                      <Text
+                        fontSize="sm"
+                        fontWeight="500"
+                        color="secondaryGray.500"
+                      >
+                        PNG, JPG and GIF files are allowed
+                      </Text>
+                    </Box>
+                  }
+                />
+              </Flex>
+            </Flex>
+            <Box diplay="flex" justifyContent="center" width="80%" mt="36px">
               <FormControl
                 display="flex"
                 alignItems="center"
