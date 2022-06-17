@@ -5,20 +5,19 @@ import { SidebarContext } from "contexts/SidebarContext";
 import React, { useState } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes.js";
-import { NavbarVertical } from "components/navbar/NavbarVertical.js";
+// import { NavbarVertical } from "components/navbar/NavbarVertical.js";
 
 import Navbar from "components/navbar/NavbarAdmin.js";
 
-
 // Custom Chakra theme
-export default function HomeLayout(props) {
+export default function MainLayout(props) {
   const { ...rest } = props;
   // states and functions
   const [fixed] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
   // functions for changing the states from components
   const getRoute = () => {
-    return window.location.pathname !== "/admin/full-screen-maps";
+    return window.location.pathname !== "/main/full-screen-maps";
   };
   const getActiveRoute = (routes) => {
     let activeRoute = "Default Brand Text";
@@ -94,7 +93,7 @@ export default function HomeLayout(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/home") {
+      if (prop.layout === "/main") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -166,7 +165,7 @@ export default function HomeLayout(props) {
             >
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="/" to="/home/default" />
+                <Redirect from="/" to="/main/home" />
               </Switch>
             </Box>
           ) : null}

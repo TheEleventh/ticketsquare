@@ -5,14 +5,13 @@ import {
 } from "react-icons/md";
 
 // Admin Imports
-import Home from "views/home/default";
-
+import Home from "views/admin/default";
 
 const routes = [
   {
     name: "Home",
-    layout: "/home",
-    path: "/default",
+    layout: "/main",
+    path: "/home",
     icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
     component: Home,
   },

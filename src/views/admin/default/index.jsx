@@ -13,9 +13,9 @@ import {
   FormControl,
   Radio,
   RadioGroup,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
-import Card from "./../../../components/card/Card.js";
+import Card from "../../../components/card/Card.js";
 
 // Assets
 import Usa from "assets/img/dashboards/usa.png";
@@ -29,12 +29,16 @@ import {
   MdBarChart,
   MdFileCopy,
 } from "react-icons/md";
+// import Dropzone from "./views/main/profile/components/Dropzone";
+import Dropzone from "./../profile/components/Dropzone";
+import Upload from "./../profile/components/Upload";
+
+import { MdUpload } from "react-icons/md";
 
 export default function Home() {
   // Chakra Color Mode
   const brandColor = useColorModeValue("brand.500", "white");
   const boxBg = useColorModeValue("secondaryGray.300", "whiteAlpha.100");
-
   const textColor = useColorModeValue("secondaryGray.900", "white");
   const textColorSecondary = "secondaryGray.600";
 
@@ -94,6 +98,58 @@ export default function Home() {
        </Box> */}
 
             <Box diplay="flex" justifyContent="center" width="80%" mt="36px">
+              {/* <Card mb="20px" align="center" p="20px"> */}
+              <Flex direction={{base: 'column', md: 'row'}} w={{base: '100%'}} justifyContent="space-around" alignItems='center'>
+                <Box 
+                justifySelf={'flex-start'}
+                >
+                <Text
+                  fontSize="md"
+                  fontWeight="500"
+                  color={textColorMini}
+                >Event Logo/NFT Art</Text>
+              </Box>
+                <Flex
+                  mb="40px"
+                  h="100%"
+                  
+                  direction={{ base: "column", "2xl": "row" }}
+                >
+                  <Dropzone
+                    w={{ base: "100%", "2xl": "268px" }}
+                    h={{base: '200px'}}
+                    // me="36px" 
+                    // maxH={{ base: "100%", lg: "100%", "2xl": "100%" }}
+                    // minH={{ base: "100%", lg: "100%", "2xl": "100%" }}
+                    content={
+                      <Box>
+                        <Icon
+                          as={MdUpload}
+                          w="80px"
+                          h="80px"
+                          color={brandColor}
+                        />
+                        <Flex justify="center" mx="auto" mb="12px">
+                          <Text
+                            fontSize="xl"
+                            fontWeight="700"
+                            color={brandColor}>
+                            Upload File Here
+                          </Text>
+                        </Flex>
+                        <Text
+                          fontSize="sm"
+                          fontWeight="500"
+                          color="secondaryGray.500"
+                        >
+                          PNG, JPG and GIF files are allowed
+                        </Text>
+                      </Box>
+                    }
+                  />
+                </Flex>
+                </Flex>
+              {/* </Card> */}
               <FormControl
                 display="flex"
                 alignItems="center"
@@ -138,7 +194,7 @@ export default function Home() {
                   ms="0px"
                   fontSize="md"
                   fontWeight="500"
-                  justifySelf='flex-start'
+                  justifySelf="flex-start"
                   // color={textColor}
                 >
                   Event Description<Text color={brandStars}>*</Text>
@@ -174,9 +230,12 @@ export default function Home() {
                 >
                   Event Type<Text color={brandStars}>*</Text>
                 </FormLabel>
-                <Select 
-
-                size='md' w='50%' id="eventtype" placeholder="Select event type">
+                <Select
+                  size="md"
+                  w="50%"
+                  id="eventtype"
+                  placeholder="Select event type"
+                >
                   <option>Entertainment</option>
                   <option>Religion</option>
                 </Select>
@@ -215,52 +274,50 @@ export default function Home() {
 
               <FormControl
                 display="flex"
-                flexDirection={{base: 'column', md: 'row'}}
-                alignItems={{base: "flex-start", md: 'center'}}
+                flexDirection={{ base: "column", md: "row" }}
+                alignItems={{ base: "flex-start", md: "center" }}
                 align="center"
                 justifyContent="space-around"
                 mb="40px"
               >
                 <Flex>
-                <FormLabel
-                  display="flex"
-                  ms="4px"
-                  fontSize="md"
-                  fontWeight="500"
-                  color={textColorMini}
-                  justifySelf='flex-start'
-                >
-                  Date/Time<Text color={brandStars}>*</Text>
-                </FormLabel>
+                  <FormLabel
+                    display="flex"
+                    ms="4px"
+                    fontSize="md"
+                    fontWeight="500"
+                    color={textColorMini}
+                    justifySelf="flex-start"
+                  >
+                    Date/Time<Text color={brandStars}>*</Text>
+                  </FormLabel>
                 </Flex>
 
-                <Flex width='60%' justifyContent='space-around'>
-              
-                <Input
-                  color={textColorMini}
-                  isRequired={true}
-                  variant="outline"
-                  fontSize="sm"
-                  ms={{ base: "0px", md: "0px" }}
-                  w={{base: "100px", md: '177px'}}
-                  type="date"
-                  fontWeight="500"
-                  size="md"
-                />
-                   <Input
-                  color={textColorMini}
-                  isRequired={true}
-                  variant="outline"
-                  fontSize="sm"
-                  ms={{ base: "0px", md: "0px" }}
-                  w={{base: "100px", md: '177px'}}
-                  type="time"
-                  fontWeight="500"
-                  size="md"
-                />
-                  </Flex>
+                <Flex width="60%" justifyContent="space-around">
+                  <Input
+                    color={textColorMini}
+                    isRequired={true}
+                    variant="outline"
+                    fontSize="sm"
+                    ms={{ base: "0px", md: "0px" }}
+                    w={{ base: "100px", md: "177px" }}
+                    type="date"
+                    fontWeight="500"
+                    size="md"
+                  />
+                  <Input
+                    color={textColorMini}
+                    isRequired={true}
+                    variant="outline"
+                    fontSize="sm"
+                    ms={{ base: "0px", md: "0px" }}
+                    w={{ base: "100px", md: "177px" }}
+                    type="time"
+                    fontWeight="500"
+                    size="md"
+                  />
+                </Flex>
               </FormControl>
-        
 
               <FormControl
                 display="flex"
@@ -268,32 +325,30 @@ export default function Home() {
                 align="center"
                 justifyContent="flex-start"
                 mb="40px"
-
-
               >
                 <FormLabel
                   display="flex"
                   fontSize="md"
                   fontWeight="500"
                   color={textColor}
-                  w={{lg: '436px'}}
-                  >
-                 Promote your event through our lottery system by dropping 
-tickets for giveaway?<Text color={brandStars}>*</Text>
-                </FormLabel>
-                <RadioGroup 
-                // position='absolute'
-                display='flex'
-                top='25px'
-                float='left'
-                // onChange={setValue} 
-                // value={value
+                  w={{ lg: "436px" }}
                 >
-      <Stack direction='row'>
-        <Radio value='1'>Yes</Radio>
-        <Radio value='2'>No</Radio>
-      </Stack>
-    </RadioGroup>
+                  Promote your event through our lottery system by dropping
+                  tickets for giveaway?<Text color={brandStars}>*</Text>
+                </FormLabel>
+                <RadioGroup
+                  // position='absolute'
+                  display="flex"
+                  top="25px"
+                  float="left"
+                  // onChange={setValue}
+                  // value={value
+                >
+                  <Stack direction="row">
+                    <Radio value="1">Yes</Radio>
+                    <Radio value="2">No</Radio>
+                  </Stack>
+                </RadioGroup>
               </FormControl>
 
               <FormControl
@@ -302,17 +357,18 @@ tickets for giveaway?<Text color={brandStars}>*</Text>
                 align="center"
                 justifyContent="space-around"
                 mb="40px"
-
               >
                 <FormLabel
                   display="flex"
                   ms="4px"
                   fontSize="md"
                   fontWeight="500"
-                  color={textColor}>
-                 How many tickets do you want to giveaway<Text color={brandStars}>*</Text>
+                  color={textColor}
+                >
+                  How many tickets do you want to giveaway
+                  <Text color={brandStars}>*</Text>
                 </FormLabel>
-                <Select size='md' w='50%' id="ticketGivewayNo">
+                <Select size="md" w="50%" id="ticketGivewayNo">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -328,25 +384,26 @@ tickets for giveaway?<Text color={brandStars}>*</Text>
                 align="center"
                 justifyContent="space-around"
                 mb="40px"
-
               >
                 <FormLabel
                   display="flex"
                   ms="4px"
                   fontSize="md"
                   fontWeight="500"
-                  color={textColor}>
-                Will you like to create giveaway questions?<Text color={brandStars}>*</Text>
+                  color={textColor}
+                >
+                  Will you like to create giveaway questions?
+                  <Text color={brandStars}>*</Text>
                 </FormLabel>
-                <RadioGroup 
-                // onChange={setValue} 
+                <RadioGroup
+                // onChange={setValue}
                 // value={value
                 >
-      <Stack direction='row'>
-        <Radio value='1'>Yes</Radio>
-        <Radio value='2'>No</Radio>
-      </Stack>
-    </RadioGroup>
+                  <Stack direction="row">
+                    <Radio value="1">Yes</Radio>
+                    <Radio value="2">No</Radio>
+                  </Stack>
+                </RadioGroup>
               </FormControl>
             </Box>
           </Flex>

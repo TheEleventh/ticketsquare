@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "assets/css/App.css";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
-import HomeLayout from "layouts/home";
+import MainLayout from "layouts/admin";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "theme/theme";
 // import { CeloProvider } from '@celo/react-celo';
@@ -37,8 +37,8 @@ ReactDOM.render(
     <React.StrictMode>
       <HashRouter>
         <Switch>
-          <Route path={`/home`} component={HomeLayout} />
-          <Redirect from='/' to='/home' />
+          <Route path={`/main`} component={MainLayout} />
+          <Redirect from='/' to='/main' />
         </Switch>
       </HashRouter>
     </React.StrictMode>
