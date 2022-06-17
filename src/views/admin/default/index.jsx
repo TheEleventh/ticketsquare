@@ -254,6 +254,38 @@ export default function Home() {
                   ms="4px"
                   fontSize="md"
                   fontWeight="500"
+                  color={textColorMini}
+                  // mr='100px'
+                >
+                  Ticket Price
+                </FormLabel>
+                <Input
+                  color={textColorMini}
+                  isRequired={true}
+                  variant="outline"
+                  fontSize="sm"
+                  ms={{ base: "0px", md: "0px" }}
+                  w="50%"
+                  type="number"
+                  placeholder="0.00"
+                  // mb='24px'
+                  fontWeight="500"
+                  size="md"
+                />
+              </FormControl>
+
+              <FormControl
+                display="flex"
+                alignItems="center"
+                align="center"
+                justifyContent="space-around"
+                mb="40px"
+              >
+                <FormLabel
+                  display="flex"
+                  ms="4px"
+                  fontSize="md"
+                  fontWeight="500"
                   color={textColor}
                 >
                   Event Venue<Text color={brandStars}>*</Text>
@@ -294,7 +326,7 @@ export default function Home() {
                   </FormLabel>
                 </Flex>
 
-                <Flex width="60%" justifyContent="space-around">
+                <Flex width="50%" justifyContent="space-around">
                   <Input
                     color={textColorMini}
                     isRequired={true}
@@ -322,6 +354,34 @@ export default function Home() {
 
               <FormControl
                 display="flex"
+                alignItems="center"
+                align="center"
+                justifyContent="space-around"
+                mb="40px"
+              >
+                <FormLabel
+                  display="flex"
+                  ms="4px"
+                  fontSize="md"
+                  fontWeight="500"
+                  color={textColor}
+                >
+                  Ticket type<Text color={brandStars}>*</Text>
+                </FormLabel>
+                <Select
+                  size="md"
+                  w="50%"
+                  id="ticket_type"
+                  placeholder="Select event type"
+                >
+                  <option>Premium</option>
+                  <option>Regular</option>
+                  <option>Platinum</option>
+                </Select>
+              </FormControl>
+
+              <FormControl
+                display="flex"
                 alignItems="baseline"
                 align="center"
                 justifyContent="flex-start"
@@ -333,6 +393,7 @@ export default function Home() {
                   fontWeight="500"
                   color={textColor}
                   w={{ lg: "436px" }}
+                  flex='1'
                 >
                   Promote your event through our lottery system by dropping
                   tickets for giveaway?<Text color={brandStars}>*</Text>
@@ -361,15 +422,16 @@ export default function Home() {
               >
                 <FormLabel
                   display="flex"
-                  ms="4px"
+                  // ms="4px"
                   fontSize="md"
                   fontWeight="500"
                   color={textColor}
+                  flex='1'
                 >
                   How many tickets do you want to giveaway
                   <Text color={brandStars}>*</Text>
                 </FormLabel>
-                <Select size="md" w="50%" id="ticketGivewayNo">
+                <Select postion='relative' left='-50px'  size="md" w="20%" id="ticketGivewayNo">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
