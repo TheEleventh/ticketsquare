@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom";
 import "assets/css/App.css";
@@ -8,6 +9,7 @@ import theme from "theme/theme";
 // import { CeloProvider } from '@celo/react-celo';
 import '@celo/react-celo/lib/styles.css';
 // import { useCelo } from '@celo/react-celo';
+
 import {
   Alfajores,
   CeloProvider,
