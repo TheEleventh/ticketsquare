@@ -6,9 +6,6 @@ import {
   Text,
   useColorModeValue,
   Button,
-  // Box,
-  // Link,
-  // Flex,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -18,47 +15,41 @@ import {
   Collapse,
   Icon,
   Image,
-  useBreakpointValue,
-  useColorMode,
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React, { useState, useEffect } from "react";
-import AdminNavbarLinks from "components/navbar/NavbarLinksAdmin";
+// import AdminNavbarLinks from "components/navbar/NavbarLinksAdmin";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { IoMdMoon, IoMdSunny } from "react-icons/io";
-import { useCelo } from '@celo/react-celo';
+import { useCelo } from "@celo/react-celo";
 
-import SidebarLinks from 'components/sidebar/components/Links.js'
+import SidebarLinks from "components/sidebar/components/Links.js";
 import image from "assets/img/nfts/Nft1.png";
-// src/components/sidebar/components/Links.js
 
 import routes from "routes.js";
 
-
 export default function AdminNavbar(props) {
+  // eslint-disable-next-line no-unused-vars
   const [scrolled, setScrolled] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const { connect, address } = useCelo();
-
 
   useEffect(() => {
     window.addEventListener("scroll", changeNavbar);
-  
 
     return () => {
       window.removeEventListener("scroll", changeNavbar);
     };
   });
 
+  // eslint-disable-next-line no-unused-vars
   const { secondary, message, brandText } = props;
 
   // Here are all the props that may change depending on navbar's type or state.(secondary, variant, scrolled)
-  let mainText = useColorModeValue("navy.700", "white");
-  let secondaryText = useColorModeValue("gray.700", "white");
   let navbarPosition = "fixed";
   let navbarFilter = "none";
   let navbarBackdrop = "blur(20px)";
@@ -70,7 +61,6 @@ export default function AdminNavbar(props) {
   let navbarBorder = "transparent";
   let secondaryMargin = "0px";
   let paddingX = "15px";
-  let gap = "0px";
   const changeNavbar = () => {
     if (window.scrollY > 1) {
       setScrolled(true);
@@ -79,26 +69,6 @@ export default function AdminNavbar(props) {
     }
   };
 
-  // const { connect, address } = useCelo();
-  // const [scrolled, setScrolled] = useState(false);
-  const { colorMode, toggleColorMode } = useColorMode();
-  const navbarIcon = useColorModeValue("gray.400", "white");
-
-  let linkColor = useColorModeValue("brand.500", "white");
-  //   let navbarBg = useColorModeValue("brand.500", "white");
-  // let navbarBg = useColorModeValue(
-  //   "rgba(244, 247, 254, 0.2)",
-  //   "rgba(11,20,55,0.5)"
-  // );
-  const textColor = useColorModeValue("brand.500", "white");
-
-
-  //   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("blue.500", "white");
-  const popoverContentBgColor = useColorModeValue(
-    "navy.500",
-    "secondaryGray.100"
-  );
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -109,23 +79,23 @@ export default function AdminNavbar(props) {
       borderColor={navbarBorder}
       filter={navbarFilter}
       backdropFilter={navbarBackdrop}
-      backgroundPosition='center'
-      backgroundSize='cover'
-      borderRadius='16px'
-      borderWidth='1.5px'
-      borderStyle='solid'
-      transitionDelay='0s, 0s, 0s, 0s'
-      transitionDuration=' 0.25s, 0.25s, 0.25s, 0s'
-      transition-property='box-shadow, background-color, filter, border'
-      transitionTimingFunction='linear, linear, linear, linear'
+      backgroundPosition="center"
+      backgroundSize="cover"
+      borderRadius="16px"
+      borderWidth="1.5px"
+      borderStyle="solid"
+      transitionDelay="0s, 0s, 0s, 0s"
+      transitionDuration=" 0.25s, 0.25s, 0.25s, 0s"
+      transition-property="box-shadow, background-color, filter, border"
+      transitionTimingFunction="linear, linear, linear, linear"
       alignItems={{ xl: "center" }}
       display={"block"}
-      minH='75px'
+      minH="75px"
       justifyContent={{ xl: "center" }}
-      lineHeight='25.6px'
-      mx='auto'
+      lineHeight="25.6px"
+      mx="auto"
       mt={secondaryMargin}
-      pb='8px'
+      pb="8px"
       right={{ base: "12px", md: "30px", lg: "30px", xl: "30px" }}
       px={{
         sm: paddingX,
@@ -134,7 +104,7 @@ export default function AdminNavbar(props) {
       ps={{
         xl: "12px",
       }}
-      pt='8px'
+      pt="8px"
       top={{ base: "12px", md: "16px", xl: "18px" }}
       w={{
         base: "calc(100vw - 6%)",
@@ -142,8 +112,9 @@ export default function AdminNavbar(props) {
         lg: "calc(100vw - 6%)",
         // xl: "calc(100vw - 350px)",
         // "2xl": "calc(100vw - 365px)",
-      }}>
-       <Flex
+      }}
+    >
+      <Flex
         // bg={"transparent"}
         // color={useColorModeValue('gray.600', 'white')}
         // minH={"60px"}
@@ -159,7 +130,7 @@ export default function AdminNavbar(props) {
           // flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
           display={{ base: "flex", md: "none" }}
-          w={'40px'}
+          w={"40px"}
         >
           <IconButton
             onClick={onToggle}
@@ -172,10 +143,9 @@ export default function AdminNavbar(props) {
         </Flex>
         {/* Toggle button for mobile  ... end*/}
 
-        <Flex ml={{ lg: "16px", md: '0px' }}>
+        <Flex ml={{ lg: "16px", md: "0px" }}>
           {/* logo here */}
-          <Image src={image} w='66px' h='66px' borderRadius='20px' me='16px' />
-          
+          <Image src={image} w="66px" h="66px" borderRadius="20px" me="16px" />
 
           {/* <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
@@ -194,7 +164,7 @@ export default function AdminNavbar(props) {
           display={{ base: "none", md: "flex" }}
           justifyContent="center"
         >
-              <SidebarLinks routes={routes} />
+          <SidebarLinks routes={routes} />
           {/* <DesktopNav linkColor={linkColor} linkHoverColor={linkHoverColor} /> */}
         </Flex>
 
@@ -239,7 +209,7 @@ export default function AdminNavbar(props) {
             //   mb='30px'
             onClick={connect}
             w="150px"
-              minW='140px'
+            minW="140px"
             //   mt={{ base: "20px", "2xl": "auto" }}
             fontWeight={700}
             variant="brand"
@@ -264,7 +234,6 @@ AdminNavbar.propTypes = {
   onOpen: PropTypes.func,
 };
 
-
 export const DesktopNav = ({ linkColor, linkHoverColor }) => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
   return (
@@ -279,10 +248,9 @@ export const DesktopNav = ({ linkColor, linkHoverColor }) => {
         <Box>
           <Popover trigger={"trigger"} placement={"bottom-start"}>
             <PopoverTrigger>
-               
               <Link
-              bg='inherit'
-              borderRadius='inherit'
+                bg="inherit"
+                borderRadius="inherit"
                 href={navItem.href ?? "#"}
                 p={2}
                 fontSize={"md"}
@@ -294,7 +262,6 @@ export const DesktopNav = ({ linkColor, linkHoverColor }) => {
                 }}
               >
                 {navItem.label}
-            
               </Link>
             </PopoverTrigger>
             {navItem.children && (

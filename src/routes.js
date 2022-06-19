@@ -1,17 +1,16 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react";
-import { Icon } from "@chakra-ui/react";
-import {
-  MdHome,
-} from "react-icons/md";
+// import { Icon } from "@chakra-ui/react";
+// import {
+//   MdHome,
+// } from "react-icons/md";
 
 // Admin Imports
 import Home from "views/admin/default";
 import Sell from "views/admin/sell";
-import Buy from "views/admin/buy";
+// import Buy from "views/admin/buy";
 import MyTickets from "views/admin/tickets";
 import About from "views/admin/about";
-
-
 
 const routes = [
   {
