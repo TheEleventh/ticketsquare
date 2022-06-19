@@ -165,7 +165,7 @@ export default function MainLayout(props) {
             >
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="/" to="/main/home" />
+                <Redirect from="/" to="/" />
               </Switch>
             </Box>
           ) : null}

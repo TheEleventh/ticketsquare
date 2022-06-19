@@ -17,6 +17,7 @@ import {
   IconButton,
   Collapse,
   Icon,
+  Image,
   useBreakpointValue,
   useColorMode,
 } from "@chakra-ui/react";
@@ -31,6 +32,12 @@ import {
 } from "@chakra-ui/icons";
 import { IoMdMoon, IoMdSunny } from "react-icons/io";
 import { useCelo } from '@celo/react-celo';
+
+import SidebarLinks from 'components/sidebar/components/Links.js'
+import image from "assets/img/nfts/Nft1.png";
+// src/components/sidebar/components/Links.js
+
+import routes from "routes.js";
 
 
 export default function AdminNavbar(props) {
@@ -166,7 +173,11 @@ export default function AdminNavbar(props) {
         {/* Toggle button for mobile  ... end*/}
 
         <Flex ml={{ lg: "16px", md: '0px' }}>
-          <Text
+          {/* logo here */}
+          <Image src={image} w='66px' h='66px' borderRadius='20px' me='16px' />
+          
+
+          {/* <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             // fontFamily={"heading"}
             // fontSize={"16px"}
@@ -176,14 +187,15 @@ export default function AdminNavbar(props) {
             color={linkColor}
           >
             Ticket Square
-          </Text>
+          </Text> */}
         </Flex>
         <Flex
           flex={{ base: 1 }}
           display={{ base: "none", md: "flex" }}
           justifyContent="center"
         >
-          <DesktopNav linkColor={linkColor} linkHoverColor={linkHoverColor} />
+              <SidebarLinks routes={routes} />
+          {/* <DesktopNav linkColor={linkColor} linkHoverColor={linkHoverColor} /> */}
         </Flex>
 
         <Stack
@@ -195,7 +207,7 @@ export default function AdminNavbar(props) {
         >
           {/* show them option to sign in when they click on start selling */}
 
-          <Button
+          {/* <Button
             variant="no-hover"
             bg="inherit"
             p="0px"
@@ -211,7 +223,7 @@ export default function AdminNavbar(props) {
               color={navbarIcon}
               as={colorMode === "light" ? IoMdMoon : IoMdSunny}
             />
-          </Button>
+          </Button> */}
           {/* <Button
             as={"a"}
             fontSize={"md"}
@@ -262,10 +274,12 @@ export const DesktopNav = ({ linkColor, linkHoverColor }) => {
       justifyContent="center"
       spacing={4}
     >
+      {/* <SidebarLinks routes={routes} /> */}
       {NAV_ITEMS.map((navItem) => (
         <Box>
           <Popover trigger={"trigger"} placement={"bottom-start"}>
             <PopoverTrigger>
+               
               <Link
               bg='inherit'
               borderRadius='inherit'
@@ -280,6 +294,7 @@ export const DesktopNav = ({ linkColor, linkHoverColor }) => {
                 }}
               >
                 {navItem.label}
+            
               </Link>
             </PopoverTrigger>
             {navItem.children && (
