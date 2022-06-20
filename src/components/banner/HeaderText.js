@@ -18,13 +18,13 @@ export default function HeaderText() {
         <Heading
           color={"white"}
           fontWeight={"bold"}
+          mb='16px'
           // lineHeight={'42px'}
           fontSize={useBreakpointValue({ base: "3xl", md: "34px" })}
           maxWidth={'387px'}
         >
           An NFT ticketing platform for events around the world.
         </Heading>
-
         <Text
           fontSize={useBreakpointValue({ base: "16px" })}
           fontWeight="500"
