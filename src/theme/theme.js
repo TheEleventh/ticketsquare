@@ -12,11 +12,10 @@ import { breakpoints } from "./foundations/breakpoints";
 import { globalStyles } from "./styles";
 
 const config = {
-  initialColorMode: 'dark',
+  initialColorMode: "dark",
   useSystemColorMode: false,
-}
+};
 export default extendTheme(
- 
   { breakpoints }, // Breakpoints
   { config }, //color mode
   globalStyles,

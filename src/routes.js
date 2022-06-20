@@ -1,9 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
-// import { Icon } from "@chakra-ui/react";
-// import {
-//   MdHome,
-// } from "react-icons/md";
 
 // Admin Imports
 import Home from "views/admin/default";

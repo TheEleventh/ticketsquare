@@ -1,18 +1,25 @@
+import React from "react";
 import {
   Box,
-  Text,
 } from "@chakra-ui/react";
 
 // Assets
 // Custom components
-import React from "react";
+
+import Banner from 'components/banner/Banner';
+import BannerAction from 'components/banner/BannerAction';
+import HeaderText from "components/banner/HeaderText";
 
 export default function Home() {
   // Chakra Color Mode
 
   return (
     <Box pt={{ base: "130px", md: "80px", xl: "100px" }}>
-      <Text>This is the Marketplace</Text>
+    <Banner>
+      <HeaderText/>
+      <Box my='40px'/>
+      <BannerAction />
+    </Banner>
    
     </Box>
   );
