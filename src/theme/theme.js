@@ -10,10 +10,14 @@ import { switchStyles } from "./components/switch";
 import { linkStyles } from "./components/link";
 import { breakpoints } from "./foundations/breakpoints";
 import { globalStyles } from "./styles";
+
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false,
+};
 export default extendTheme(
- 
   { breakpoints }, // Breakpoints
-  {initialColorMode: 'Dark'},
+  { config }, //color mode
   globalStyles,
   badgeStyles, // badge styles
   buttonStyles, // button styles

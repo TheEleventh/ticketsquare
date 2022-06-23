@@ -1,29 +1,33 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import ReactDOM from "react-dom";
 import "assets/css/App.css";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
-import HomeLayout from "layouts/home";
+import MainLayout from "layouts/admin";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "theme/theme";
 // import { CeloProvider } from '@celo/react-celo';
-import '@celo/react-celo/lib/styles.css';
+import "@celo/react-celo/lib/styles.css";
 // import { useCelo } from '@celo/react-celo';
+
 import {
   Alfajores,
   CeloProvider,
   Theme,
   UseCelo,
   useCelo,
-} from '@celo/react-celo';
-import Web3 from 'web3';
+} from "@celo/react-celo";
+import Web3 from "web3";
+
+import Components from "views/admin/components/components";
 
 ReactDOM.render(
   <ChakraProvider theme={theme}>
     <CeloProvider
       dapp={{
-        name: 'My awesome dApp',
-        description: 'My awesome description',
-        url: 'https://example.com',
+        name: "My awesome dApp",
+        description: "My awesome description",
+        url: "https://example.com",
       }}
       network={Alfajores}
       connectModal={{
@@ -34,14 +38,15 @@ ReactDOM.render(
         },
       }}
     >
-    <React.StrictMode>
-      <HashRouter>
-        <Switch>
-          <Route path={`/home`} component={HomeLayout} />
-          <Redirect from='/' to='/home' />
-        </Switch>
-      </HashRouter>
-    </React.StrictMode>
+      <React.StrictMode>
+        <HashRouter>
+          <Switch>
+            <Route path={`/components`} component={Components} />
+            <Route path={`/main`} component={MainLayout} />
+            <Redirect from="/" to="/main" />
+          </Switch>
+        </HashRouter>
+      </React.StrictMode>
     </CeloProvider>
   </ChakraProvider>,
   document.getElementById("root")

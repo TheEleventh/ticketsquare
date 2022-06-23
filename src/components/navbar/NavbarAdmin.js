@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { IoMdMoon, IoMdSunny } from "react-icons/io";
+// Chakra Imports
 import {
+  Box,
+  Flex,
+  Link,
   Text,
   useColorModeValue,
   Button,
-  Box,
-  Link,
-  Flex,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -15,48 +14,29 @@ import {
   IconButton,
   Collapse,
   Icon,
-  useBreakpointValue,
-  useColorMode,
+  Image,
 } from "@chakra-ui/react";
-
+import PropTypes from "prop-types";
+import React, { useState, useEffect } from "react";
+// import AdminNavbarLinks from "components/navbar/NavbarLinksAdmin";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import { useCelo } from '@celo/react-celo';
+import { useCelo } from "@celo/react-celo";
 
-export const NavbarVertical = () => {
-  const { connect, address } = useCelo();
+import SidebarLinks from "components/sidebar/components/Links.js";
+import image from "assets/img/nfts/Nft1.png";
+
+import routes from "routes.js";
+
+export default function AdminNavbar(props) {
+  // eslint-disable-next-line no-unused-vars
   const [scrolled, setScrolled] = useState(false);
-  const { colorMode, toggleColorMode } = useColorMode();
-  const navbarIcon = useColorModeValue("gray.400", "white");
-
-  let linkColor = useColorModeValue("brand.500", "white");
-  //   let navbarBg = useColorModeValue("brand.500", "white");
-  let navbarBg = useColorModeValue(
-    "rgba(244, 247, 254, 0.2)",
-    "rgba(11,20,55,0.5)"
-  );
-  const textColor = useColorModeValue("brand.500", "white");
-  let navbarPosition = "fixed";
-  let navbarBackdrop = "blur(20px)";
-  let navbarShadow = "none";
-
-  let navbarFilter = "none";
-  let navbarBorder = "transparent";
-  let secondaryMargin = "0px";
-  let paddingX = "15px";
-  let gap = "0px";
-
-  //   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("blue.500", "white");
-  const popoverContentBgColor = useColorModeValue(
-    "navy.500",
-    "secondaryGray.100"
-  );
-  const { isOpen, onToggle } = useDisclosure();
+  // eslint-disable-next-line no-unused-vars
+  const { connect, address } = useCelo();
 
   useEffect(() => {
     window.addEventListener("scroll", changeNavbar);
@@ -66,6 +46,21 @@ export const NavbarVertical = () => {
     };
   });
 
+  // eslint-disable-next-line no-unused-vars
+  const { secondary, message, brandText } = props;
+
+  // Here are all the props that may change depending on navbar's type or state.(secondary, variant, scrolled)
+  let navbarPosition = "fixed";
+  let navbarFilter = "none";
+  let navbarBackdrop = "blur(20px)";
+  let navbarShadow = "none";
+  let navbarBg = useColorModeValue(
+    "rgba(244, 247, 254, 0.2)",
+    "rgba(11,20,55,0.5)"
+  );
+  let navbarBorder = "transparent";
+  let secondaryMargin = "0px";
+  let paddingX = "15px";
   const changeNavbar = () => {
     if (window.scrollY > 1) {
       setScrolled(true);
@@ -73,6 +68,8 @@ export const NavbarVertical = () => {
       setScrolled(false);
     }
   };
+
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Box
@@ -93,8 +90,7 @@ export const NavbarVertical = () => {
       transitionTimingFunction="linear, linear, linear, linear"
       alignItems={{ xl: "center" }}
       display={"block"}
-      minH="85px"
-      // justifyContent={{ xl: "space-between" }}
+      minH="75px"
       justifyContent={{ xl: "center" }}
       lineHeight="25.6px"
       mx="auto"
@@ -134,7 +130,7 @@ export const NavbarVertical = () => {
           // flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
           display={{ base: "flex", md: "none" }}
-          w={'40px'}
+          w={"40px"}
         >
           <IconButton
             onClick={onToggle}
@@ -147,8 +143,11 @@ export const NavbarVertical = () => {
         </Flex>
         {/* Toggle button for mobile  ... end*/}
 
-        <Flex ml={{ lg: "16px", md: '0px' }}>
-          <Text
+        <Flex ml={{ lg: "16px", md: "0px" }}>
+          {/* logo here */}
+          <Image src={image} w="66px" h="66px" borderRadius="20px" me="16px" />
+
+          {/* <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             // fontFamily={"heading"}
             // fontSize={"16px"}
@@ -158,14 +157,15 @@ export const NavbarVertical = () => {
             color={linkColor}
           >
             Ticket Square
-          </Text>
+          </Text> */}
         </Flex>
         <Flex
           flex={{ base: 1 }}
           display={{ base: "none", md: "flex" }}
           justifyContent="center"
         >
-          <DesktopNav linkColor={linkColor} linkHoverColor={linkHoverColor} />
+          <SidebarLinks routes={routes} />
+          {/* <DesktopNav linkColor={linkColor} linkHoverColor={linkHoverColor} /> */}
         </Flex>
 
         <Stack
@@ -177,7 +177,7 @@ export const NavbarVertical = () => {
         >
           {/* show them option to sign in when they click on start selling */}
 
-          <Button
+          {/* <Button
             variant="no-hover"
             bg="inherit"
             p="0px"
@@ -193,7 +193,7 @@ export const NavbarVertical = () => {
               color={navbarIcon}
               as={colorMode === "light" ? IoMdMoon : IoMdSunny}
             />
-          </Button>
+          </Button> */}
           {/* <Button
             as={"a"}
             fontSize={"md"}
@@ -209,7 +209,7 @@ export const NavbarVertical = () => {
             //   mb='30px'
             onClick={connect}
             w="150px"
-              minW='140px'
+            minW="140px"
             //   mt={{ base: "20px", "2xl": "auto" }}
             fontWeight={700}
             variant="brand"
@@ -224,6 +224,14 @@ export const NavbarVertical = () => {
       </Collapse>
     </Box>
   );
+}
+
+AdminNavbar.propTypes = {
+  brandText: PropTypes.string,
+  variant: PropTypes.string,
+  secondary: PropTypes.bool,
+  fixed: PropTypes.bool,
+  onOpen: PropTypes.func,
 };
 
 export const DesktopNav = ({ linkColor, linkHoverColor }) => {
@@ -235,13 +243,14 @@ export const DesktopNav = ({ linkColor, linkHoverColor }) => {
       justifyContent="center"
       spacing={4}
     >
+      {/* <SidebarLinks routes={routes} /> */}
       {NAV_ITEMS.map((navItem) => (
         <Box>
           <Popover trigger={"trigger"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-              bg='inherit'
-              borderRadius='inherit'
+                bg="inherit"
+                borderRadius="inherit"
                 href={navItem.href ?? "#"}
                 p={2}
                 fontSize={"md"}
@@ -400,7 +409,7 @@ export const NAV_ITEMS = [
   //   // ],
   // },
   {
-    label: "Start selling",
+    label: "About",
     // children: [
     //   {
     //     label: "Job Board",
@@ -415,15 +424,15 @@ export const NAV_ITEMS = [
     // ],
   },
   {
-    label: "Roadmap",
+    label: "Start selling",
     href: "#",
   },
   {
-    label: "Team",
+    label: "Attend Event",
     href: "#",
   },
   {
-    label: "Whitepaper",
+    label: "My Tickets",
     href: "#",
   },
 ];
