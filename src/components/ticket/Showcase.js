@@ -30,16 +30,20 @@ export default function TicketShowcase({
 
   const textColor = useColorModeValue("navy.700", "white");
   return (
-    <Card p="20px" w='100'>
+    <Card p="20px" w="350px" h='370px'>
       <Flex direction={{ base: "column" }} justify="center">
-        <Box mb={{ base: "20px", "2xl": "20px" }} position="relative">
-          <Image
-            src={image || Nft1}
-            w={{ base: "100%", "3xl": "100%" }}
-            h={{ base: "100%", "3xl": "100%" }}
-            p="21px"
-            borderRadius="40px"
-          />
+        <Box mb={{ base: "20px", "2xl": "40px" }} position="relative">
+          <Box>
+            <Image
+              src={image || Nft1}
+              w={{ base: "100%", "3xl": "100%" }}
+              h={{ base: "100%", "3xl": "100%" }}
+              p="5px"
+              borderRadius="16px"
+              maxWidth="308px"
+              maxHeight="205px"
+            />
+          </Box>
 
           <Flex
             flexDirection="column"
