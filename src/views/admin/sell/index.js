@@ -163,7 +163,7 @@ import {
                     ms={{ base: "0px", md: "0px" }}
                     w="50%"
                     type="text"
-                    placeholder="mail@ticketsquare.com"
+                    placeholder="e.g: Afro Night"
                     // mb='24px'
                     fontWeight="500"
                     size="md"
